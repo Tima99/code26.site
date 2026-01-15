@@ -23,7 +23,16 @@
       <div class="logo-container">
         <img src="assets/logo.png" alt="CODE26 Logo" class="logo" />
       </div>
-      <a href="#contact" class="cta-btn">Get Consultation</a>
+      <nav class="nav-links">
+        <a href="#philosophy">Philosophy</a>
+        <a href="#projects">Work</a>
+        <a href="#contact" class="cta-btn">Get Consultation</a>
+      </nav>
+      <button class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </header>
 
     <!-- HERO -->
@@ -35,14 +44,17 @@
           From concept to completion, we deliver high-performance solutions that
           drive growth.
         </p>
-        <a href="#contact" class="primary-btn">Start Your Project</a>
+        <div class="hero-actions">
+          <a href="#contact" class="primary-btn">Start Your Project</a>
+          <a href="#projects" class="secondary-btn">View Our Work</a>
+        </div>
       </div>
     </section>
 
     <!-- THE 26 PHILOSOPHY -->
-    <section class="philosophy">
+    <section class="philosophy" id="philosophy">
       <div class="container">
-        <h2>The 26 Philosophy</h2>
+        <h2>The 26 Philosophy (A-Z)</h2>
         <p class="section-desc">
           Excellence in every phase of the digital lifecycle.
         </p>
@@ -75,44 +87,68 @@
     </section>
 
     <!-- PROJECTS -->
-    <section class="projects">
+    <section class="projects" id="projects">
       <div class="container">
         <h2>Selected Projects</h2>
         <div class="project-grid">
           <div class="project-card">
-            <img src="assets/placeholder/website.jpg" alt="Bright Airways" />
+            <div class="project-image crop-nabtt">
+              <img src="assets/admin-panel.png" alt="Admin Dashboard" />
+            </div>
             <div class="project-info">
-              <h3>Bright Airways</h3>
-              <p>Corporate lead-gen platform for aviation services.</p>
-              <a
-                href="https://www.brightairways.in/"
-                target="_blank"
-                class="project-link"
-                >Visit Site</a
-              >
+              <h3>Custom Admin Panels</h3>
+              <p>
+                Scalable user & content management dashboards with deep
+                analytics.
+              </p>
+              <span class="tag">Scalable Admin</span>
             </div>
           </div>
 
           <div class="project-card">
-            <img src="assets/placeholder/dashboard.jpg" alt="Cricket Admin" />
+            <div class="project-image">
+              <img src="assets/cricradio.png" alt="Cricradio" />
+            </div>
             <div class="project-info">
-              <h3>Cricket Live Platform</h3>
-              <p>Real-time analytics dashboard and scoring system.</p>
+              <h3>Live Systems & Analytics</h3>
+              <p>
+                Real-time cricket scoring, live feeds, and complex data
+                streaming.
+              </p>
               <a
                 href="https://cricradio.com"
                 target="_blank"
                 class="project-link"
-                >View Dashboard</a
+                >View Platform</a
               >
             </div>
           </div>
 
           <div class="project-card">
-            <img src="assets/placeholder/ecommerce.jpg" alt="MediaStudyRoom" />
+            <div class="project-image">
+              <img src="assets/ott-admin.png" alt="OTT CMS Admin" />
+            </div>
+            <div class="project-info">
+              <h3>OTT CMS Dashboard</h3>
+              <p>
+                Advanced Content Management Systems for high-load video
+                platforms.
+              </p>
+              <span class="tag">OTT / CMS</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image">
+              <img src="./assets/MSR.png" alt="MediaStudyRoom" />
+            </div>
             <div class="project-info">
               <h3>MediaStudyRoom</h3>
-              <p>E-commerce platform for digital educational content.</p>
-              <span class="coming-soon">Payment-Ready</span>
+              <p>
+                Robust E-commerce platform for digital educational content &
+                payment-ready.
+              </p>
+              <span class="coming-soon">Payment-Ready Architecture</span>
             </div>
           </div>
         </div>
@@ -124,7 +160,9 @@
       <div class="container">
         <div class="contact-box">
           <h2>Get in Touch</h2>
-          <p>Let's build something extraordinary together.</p>
+          <p style="margin-bottom: 1rem">
+            Let's build something extraordinary together.
+          </p>
 
           <form id="leadForm">
             <div class="form-group">

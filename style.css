@@ -38,18 +38,19 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
+  padding: 15px 5%;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1000;
-  background: rgba(2, 6, 23, 0.8);
-  backdrop-filter: blur(12px);
+  background: rgba(2, 6, 23, 0.85);
+  backdrop-filter: blur(15px);
   border-bottom: 1px solid var(--glass-border);
+  transition: all 0.3s ease;
 }
 
 .logo {
-  height: 50px;
+  height: 40px;
   transition: transform 0.3s ease;
 }
 
@@ -57,12 +58,29 @@ body {
   transform: scale(1.05);
 }
 
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--cyan-primary);
+}
+
 .cta-btn {
   background: var(--cyan-primary);
-  color: #000;
+  color: #000 !important;
   padding: 10px 24px;
   border-radius: 50px;
-  font-weight: 600;
+  font-weight: 600 !important;
   text-decoration: none;
   box-shadow: 0 0 15px var(--cyan-glow);
   transition: all 0.3s ease;
@@ -73,9 +91,27 @@ body {
   box-shadow: 0 0 25px var(--cyan-primary);
 }
 
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background: var(--cyan-primary);
+  transition: all 0.3s ease;
+}
+
 /* HERO */
 .hero {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -86,6 +122,27 @@ body {
     var(--bg-dark) 100%
   );
   padding-top: 80px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.secondary-btn {
+  display: inline-block;
+  color: #fff;
+  padding: 14px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.secondary-btn:hover {
+  color: var(--cyan-primary);
 }
 
 .hero-content h1 {
@@ -110,7 +167,7 @@ body {
   font-size: 1.25rem;
   color: var(--text-secondary);
   max-width: 700px;
-  margin: 0 auto 40px;
+  margin: 0 auto;
 }
 
 .primary-btn {
@@ -210,11 +267,34 @@ h2 {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
-.project-card img {
+.project-image {
   width: 100%;
   height: 250px;
-  object-fit: cover;
+  overflow: hidden;
+  position: relative;
   border-bottom: 1px solid var(--glass-border);
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.1);
+}
+
+/* First project card should hide only show in mobile */
+.project-card:first-child {
+  display: none;
+}
+
+/* logo removal via crop for Nabtt Admin */
+.crop-nabtt img {
+  object-position: 50% 100%; /* Shifting it so the top logo is cut off */
+  transform: scale(1.4) translateY(10%); /* Zoom in and shift down to hide top-left */
 }
 
 .project-info {
@@ -241,6 +321,14 @@ h2 {
 
 .project-link::after {
   content: " →";
+}
+
+.tag {
+  font-size: 0.8rem;
+  color: var(--cyan-primary);
+  background: rgba(34, 211, 238, 0.1);
+  padding: 4px 12px;
+  border-radius: 10px;
 }
 
 .coming-soon {
@@ -329,13 +417,87 @@ footer {
   text-decoration: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .hero-content h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-card:first-child {
+    display: block;
+  }
+
+  .project-card {
+    height: auto;
+  }
+
+  .project-card img {
+    object-fit: contain;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 280px;
+    background: var(--bg-dark);
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+    transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .menu-toggle {
+    display: flex;
+    z-index: 1001;
+  }
+
+  /* Hamburger toggle animations */
+  .menu-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .hero-content h1 {
+    font-size: 2.6rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    gap: 15px;
+    padding: 0 40px;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 2rem;
   }
 }
 
 #formStatus {
   margin-top: 1rem;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
+  font-weight: 500;
 }
