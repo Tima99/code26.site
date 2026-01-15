@@ -9,10 +9,15 @@ const statusText = document.getElementById("formStatus");
 
 // Safety check
 if (form) {
+  const submitBtn = form.querySelector(".submit-btn");
+
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    statusText.textContent = "Sending...";
+    // Disable button and show loading state
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending...";
+    statusText.textContent = "In progress...";
     statusText.style.color = "#94a3b8";
 
     emailjs
@@ -26,11 +31,16 @@ if (form) {
           "Thank you! We will contact you shortly.";
         statusText.style.color = "#22d3ee";
         form.reset();
+        submitBtn.textContent = "Sent Successfully";
       })
       .catch(function () {
         statusText.textContent =
           "Something went wrong. Please try again later.";
         statusText.style.color = "#f87171";
+        // Re-enable button on error to allow retry
+        submitBtn.textContent = "Get Free Consultation";
+      }).finally(() => {
+        submitBtn.disabled = false;
       });
   });
 }

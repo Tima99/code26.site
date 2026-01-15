@@ -399,6 +399,13 @@ textarea {
   box-shadow: 0 10px 20px var(--cyan-glow);
 }
 
+.submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
 /* FOOTER */
 footer {
   padding: 60px 0;
@@ -428,12 +435,15 @@ footer {
     display: block;
   }
 
-  .project-card {
+  .project-image {
     height: auto;
+    max-height: 250px;
   }
 
-  .project-card img {
+  .project-image img {
     object-fit: contain;
+    object-position: center;
+    transform: none;
   }
 
   .nav-links {
@@ -494,6 +504,13 @@ footer {
   .hero-content h1 {
     font-size: 2rem;
   }
+
+  .hero {
+    padding: 0 0.5rem;
+  }
+}
+
+@media (max-width: 350px) {
 }
 
 #formStatus {
