@@ -3,27 +3,100 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CODE26 - Project</title>
+    <title>CODE26 – Web & Software Solutions</title>
+    <meta
+      name="description"
+      content="CODE26 builds scalable web, admin panels, live systems & e-commerce solutions."
+    />
+
     <link rel="stylesheet" href="style.css" />
+
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   </head>
   <body>
-    <header>
-      <img src="assets/logo.png" alt="CODE26 Logo" id="logo" />
-      <h1>Welcome to CODE26</h1>
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <img src="assets/logo.png" alt="CODE26 Logo" class="logo" />
+      <a href="#contact" class="cta-btn">Get Consultation</a>
     </header>
-    <main>
-      <section id="placeholders">
-        <img src="assets/placeholder/website.jpg" alt="Website Placeholder" />
-        <img
-          src="assets/placeholder/dashboard.jpg"
-          alt="Dashboard Placeholder"
-        />
-        <img
-          src="assets/placeholder/ecommerce.jpg"
-          alt="E-commerce Placeholder"
-        />
-      </section>
-    </main>
+
+    <!-- HERO -->
+    <section class="hero">
+      <h1>Scalable Web, Admin & Digital Solutions</h1>
+      <p>
+        We build high-performance websites, dashboards & e-commerce platforms.
+      </p>
+      <a href="#contact" class="primary-btn">Get Free Consultation</a>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services">
+      <h2>Our Expertise</h2>
+      <div class="service-grid">
+        <div>Web Development</div>
+        <div>Admin Panels & Dashboards</div>
+        <div>Live Systems (Cricket, Feeds)</div>
+        <div>E-commerce Platforms</div>
+        <div>Payment-Ready Architecture</div>
+        <div>Custom Software</div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="projects">
+      <h2>Our Work</h2>
+
+      <div class="project-card">
+        <img src="assets/placeholder/website.jpg" alt="Bright Airways" />
+        <h3>Bright Airways</h3>
+        <p>Corporate website with clean UI & lead-focused design.</p>
+        <a href="https://www.brightairways.in/" target="_blank"
+          >Visit Website</a
+        >
+      </div>
+
+      <div class="project-card">
+        <img src="assets/placeholder/dashboard.jpg" alt="Cricket Admin" />
+        <h3>Cricket Admin Panel</h3>
+        <p>Live scoring, admin dashboard & real-time feeds.</p>
+        <a href="https://cricradio.com" target="_blank">View Platform</a>
+      </div>
+
+      <div class="project-card">
+        <img src="assets/placeholder/ecommerce.jpg" alt="MediaStudyRoom" />
+        <h3>MediaStudyRoom (E-commerce)</h3>
+        <p>
+          Ebook platform with add-to-cart, instant buy & payment-ready system.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACT / LEAD FORM -->
+    <section class="contact" id="contact">
+      <h2>Get in Touch</h2>
+
+      <form id="leadForm">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Email Address" required />
+        <input type="text" name="phone" placeholder="Phone Number" />
+        <textarea
+          name="message"
+          placeholder="Tell us your requirement"
+          required
+        ></textarea>
+
+        <button type="submit">Get Free Consultation</button>
+        <p id="formStatus"></p>
+      </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>© 2026 CODE26</p>
+      <a href="https://www.linkedin.com/in/code26/" target="_blank">LinkedIn</a>
+    </footer>
+
     <script src="script.js"></script>
   </body>
 </html>
